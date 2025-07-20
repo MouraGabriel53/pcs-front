@@ -4,12 +4,12 @@ import getPublicacoes from "../features/getPublicacoes";
 import '../cardInfo/CardInfo.css'
 
 export default function CardInfo(){
-    const [codigoPubli, setCodigoPubli] = useState()
-    const [publicacaoId, setPublicacaoId] = useState()
-    const [nItem, setNumItem] = useState()
-    const [codigo, setCodigo] = useState()
-    const [nome, setNome] = useState()
-    const [tipo, setTipo] = useState()
+    const [codigoPubli, setCodigoPubli] = useState('')
+    const [publicacaoId, setPublicacaoId] = useState('')
+    const [nItem, setNumItem] = useState('')
+    const [codigo, setCodigo] = useState('')
+    const [nome, setNome] = useState('')
+    const [tipo, setTipo] = useState('')
 
     const handlerSubmit = async (event) => {
     event.preventDefault()
@@ -19,6 +19,7 @@ export default function CardInfo(){
     setCodigo(response.CODIGO)
     setNome(response.NOME)
     setTipo(response.TIPO)
+    sessionStorage.setItem("PUBLICACAOID", response.PUBLICACAOID)
 }
 
     const dataPubli = {

@@ -1,10 +1,10 @@
-export default async function getPublicacoes(codigoPubli) {
+export default async function postControle(publiID, quantidade, mes, ano) {
     
-    const url = `http://localhost:8080/api/rest/v1/getPublicacoes?idpublicacao=&nItem=&codigo=${codigoPubli}&nome=&tipo=`;
+    const url = `http://localhost:8080/api/rest/v1/postControle/${publiID}/${quantidade}/${mes}/${ano}`;
   
     try {
         const response = await fetch(url, {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -13,7 +13,7 @@ export default async function getPublicacoes(codigoPubli) {
         throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json();
-        return json.response[0]
+        return json
     } catch (error) {
         console.error(error.message);
     }

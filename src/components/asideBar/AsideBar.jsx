@@ -27,12 +27,6 @@ export default function AsideBar() {
                                 </a> 
                             </li>
                             <li className="sidebar-item">
-                                <a href="/registrar">
-                                    <i className="bi bi-pencil-square"></i>
-                                    <span>Registrar</span>
-                                </a> 
-                            </li>
-                            <li className="sidebar-item">
                                 <a href="/alterar">
                                     <i className="bi bi-gear"></i>
                                     <span>Alterar</span>
@@ -46,12 +40,6 @@ export default function AsideBar() {
                     </button>
                     <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                            <li className="sidebar-item">
-                                <a href="/lançar">
-                                    <i className="bi bi-database-add"></i>
-                                    <span>Lançar</span>
-                                </a> 
-                            </li>
                             <li className="sidebar-item">
                                 <a href="/registrar">
                                     <i className="bi bi-pencil-square"></i>
