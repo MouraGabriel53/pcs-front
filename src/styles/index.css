@@ -7,5 +7,5 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: white;
+  background-color: var(--white);
 }

@@ -6,12 +6,12 @@ import '../pages/General.css'
 export default function General(){
     
     return(
-        <div className="d-flex flex-1">
+        <div className="d-flex flex-1" style={{backgroundColor:"#F5F7FA"}}>
             <AsideBar></AsideBar>
-            <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
-                <CardInfo></CardInfo>
-                <CardManager></CardManager>
-            </div>
+                <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
+                    <CardInfo></CardInfo>
+                    <CardManager></CardManager>
+                </div>
         </div>
     )
 }

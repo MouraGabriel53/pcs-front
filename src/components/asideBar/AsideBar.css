@@ -6,35 +6,38 @@
 }
 
 .sidebar:hover {
-    width: 15rem;
-    background-color:wheat;
+    width: 10rem;
+    background-color: #2C3E50 ;
     transition: 250ms;
     opacity: 1;
 }
 
-a {
-    color: black;
+a, span {
+    color: white;
     text-decoration: none;
 }
 
-button, li {
+span {
+    margin-left: 0.5rem;
+}
+
+.bg-animation {
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    transition: 250ms;
+    background-color: transparent;
+}
+
+.bg-animation:hover {
+    transition: 250ms;
+    background-color:#5D6D7E ;
+}
+
+.arrow-animation i{
     transition: 250ms;
 }
 
-button:hover, li:hover {
-    transition: 250ms;
-    background-color:aliceblue;
-}
-
-.animation i{
-    transition: 250ms;
-}
-
-.animation:hover i{
+.arrow-animation:hover i{
     transition: 250ms;
     transform: rotate(90deg);
-}
-
-span {
-    padding-left: 0.5rem;
 }
