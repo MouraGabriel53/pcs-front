@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../cardManager/CardManager.css'
 import LabelControllManager from '../labelControllManager/LabelControllManager'
-import postControle from '../features/postControle'
+import postControle from '../../features/postControle.js'
 
 export default function CardManager(){
     const [dados, setDados] = useState({quantidade: '', mes: '', ano: ''})

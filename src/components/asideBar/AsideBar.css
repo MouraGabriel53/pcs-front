@@ -28,6 +28,13 @@ span {
     background-color: transparent;
 }
 
+.bg-animation {
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    transition: 250ms;
+    background-color: transparent;
+}
+
 .bg-animation:hover {
     transition: 250ms;
     background-color:#5D6D7E ;

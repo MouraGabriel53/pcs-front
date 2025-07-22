@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LabelInfo from '../labelInfo/LabelInfo'
-import getPublicacoes from "../features/getPublicacoes";
+import getPublicacoes from "../../features/getPublicacoes.js";
 import '../cardInfo/CardInfo.css'
 
 export default function CardInfo(){

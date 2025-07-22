@@ -8,46 +8,35 @@ export default function General(){
     
     return(
         <div className="d-flex flex-1" style={{backgroundColor:"#F5F7FA"}}>
+            <AsideBar></AsideBar>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/*" element={
-                        <>
-                            <AsideBar></AsideBar>
-                            <h1>Dashboard</h1>
-                        </>              
-                    }></Route>
+                    <Route path="/*" element={<h1>NOT FOUNDED 404</h1>}></Route>
                     <Route path="/dashboard"  element={
-                        <>
-                            <AsideBar></AsideBar>
-                            <h1>Dashboard</h1>
-                        </>              
+                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
+                            <h1 className="m-auto">Dashboard</h1>
+                        </div>              
                     }></Route>
                     <Route path="/controle/lancar" element={
-                        <>
-                            <AsideBar></AsideBar>
-                            <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
-                                <CardInfo></CardInfo>
-                                <CardManager></CardManager>
-                            </div>
-                        </>
+                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
+                            <CardInfo></CardInfo>
+                            <CardManager></CardManager>
+                        </div>
                     }></Route>
                     <Route path="/controle/alterar"  element={
-                        <>
-                            <AsideBar></AsideBar>
-                            <h1>Alterar</h1>
-                        </>              
+                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
+                            <CardInfo></CardInfo>
+                        </div>              
                     }></Route>
                     <Route path="/publicacoes/registrar"  element={
-                        <>
-                            <AsideBar></AsideBar>
-                            <h1>Registrar</h1>
-                        </>              
+                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
+                            <h1 className="m-auto">Registrar Publicação</h1>
+                        </div>              
                     }></Route>
                     <Route path="/publicacoes/alterar"  element={
-                        <>
-                            <AsideBar></AsideBar>
-                            <h1>Alterar</h1>
-                        </>              
+                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
+                            <CardInfo></CardInfo>
+                        </div>              
                     }></Route>
                 </Routes>
             </BrowserRouter>
