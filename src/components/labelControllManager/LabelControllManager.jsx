@@ -12,7 +12,7 @@ export default function LabelControllManager({ onChange }) {
 
     return (
         <div className='d-flex text-black'>
-            <div>
+            <div className='text-light'>
                 <h4>Quantidade</h4>
                 <input 
                     name='quantity'
@@ -38,7 +38,15 @@ export default function LabelControllManager({ onChange }) {
                     className="form-select mb-3" 
                     value={ano} onChange={(e) => setAno(e.target.value)}>
                     <option value="">Ano:</option>
-                    <option value="2025">2025</option>
+                    {[-1, 0, 1].map((offset, i) => {
+                        const year = new Date().getFullYear() + offset;
+                        return (
+                            <option 
+                            key={i} 
+                            value={year}
+                            >{year}</option>
+                        );
+                    })}
                 </select>
             </div>
         </div>

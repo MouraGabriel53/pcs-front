@@ -2,7 +2,7 @@ import "../asideBar/AsideBar.css"
 
 export default function AsideBar() {
     return(
-        <aside className="sidebar p-2">
+        <aside className="sidebar p-2 bg-dark">
             <div className="d-flex fs-1 gap-3 my-3 justify-content-center">
                 <a 
                 className="rounded-circle bg-danger" 

@@ -30,7 +30,7 @@ export default function CardInfo(){
     5: {name: 'Tipo', value: tipo},
 }
     return(
-        <div> 
+        <div style={{maxHeight:'25rem'}}> 
             <form className="d-flex mb-3" onSubmit={handlerSubmit} type="submit">
                 <input 
                     name="search"
@@ -43,13 +43,15 @@ export default function CardInfo(){
                 }}></input>
                 <button className="btn btn-outline-success" type="submit">Pesquisar</button>
             </form>
-            {
-                Object.values(dataPubli).map((value, key) => {
-                    return(
-                        <LabelInfo key={key} name={value.name} value={value.value} aria-label={key}></LabelInfo>
-                    )
-                })
-            }
+            <div className="">
+                {
+                    Object.values(dataPubli).map((value, key) => {
+                        return(
+                            <LabelInfo key={key} name={value.name} value={value.value} aria-label={key}></LabelInfo>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

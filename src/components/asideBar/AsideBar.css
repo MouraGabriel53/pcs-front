@@ -7,7 +7,6 @@
 
 .sidebar:hover {
     width: 10rem;
-    background-color: #2C3E50 ;
     transition: 250ms;
     opacity: 1;
 }
