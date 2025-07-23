@@ -10,11 +10,12 @@ export default async function getPublicacoes(codigoPubli) {
             },
         });
         if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
+            throw new Error(`Response status: ${response.status}`);
         }
-        const json = await response.json();
-        return json.response[0]
+        const data = await response.json();
+        return data.response[0]
     } catch (error) {
         console.error(error.message);
+        return
     }
 }

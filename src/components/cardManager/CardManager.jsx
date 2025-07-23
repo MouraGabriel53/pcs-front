@@ -16,7 +16,7 @@ export default function CardManager(){
         console.log(response)
     }
     return(
-        <div className='m-auto'>
+        <div>
             <form className='d-flex flex-column' onSubmit={handlerSubmit}>
                 <LabelControllManager onChange={setDados}></LabelControllManager>
                 <button className="btn btn-outline-success btn-lg" type="submit">Lançar</button>

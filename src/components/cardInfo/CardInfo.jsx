@@ -30,10 +30,16 @@ export default function CardInfo(){
     5: {name: 'Tipo', value: tipo},
 }
     return(
-        <div className="m-auto"> 
+        <div> 
             <form className="d-flex mb-3" onSubmit={handlerSubmit} type="submit">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(event) => {
-                    setCodigoPubli(event.target.value)                        
+                <input 
+                    name="search"
+                    className="form-control me-2" 
+                    type="search" 
+                    placeholder="Pesquisar" 
+                    aria-label="Search" 
+                    onChange={(event) => {
+                        setCodigoPubli(event.target.value)                        
                 }}></input>
                 <button className="btn btn-outline-success" type="submit">Pesquisar</button>
             </form>

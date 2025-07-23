@@ -15,6 +15,7 @@ export default function LabelControllManager({ onChange }) {
             <div>
                 <h4>Quantidade</h4>
                 <input 
+                    name='quantity'
                     type="text" 
                     className="form-control mb-3" 
                     aria-label="Sizing example input" 
@@ -22,8 +23,10 @@ export default function LabelControllManager({ onChange }) {
                     placeholder='Quantidade'></input>
                 <h4>Mês</h4>
                 <select 
+                    name='mouth'
                     className="form-select mb-3" 
-                    value={mes} onChange={(e) => setMes(e.target.value)}>
+                    value={mes} 
+                    onChange={(e) => setMes(e.target.value)}>
                     <option value="">Mês:</option>
                     {[...Array(12)].map((_, i) => (
                         <option key={i + 1} value={i + 1}>{i + 1}</option>
@@ -31,6 +34,7 @@ export default function LabelControllManager({ onChange }) {
                 </select>
                 <h4>Ano</h4>
                 <select 
+                    name='year'
                     className="form-select mb-3" 
                     value={ano} onChange={(e) => setAno(e.target.value)}>
                     <option value="">Ano:</option>

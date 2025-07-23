@@ -10,11 +10,12 @@ export default async function postControle(publiID, quantidade, mes, ano) {
             },
         });
         if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
+            throw new Error(`Response status: ${response.status}`);
         }
-        const json = await response.json();
-        return json
+        const data = await response.json();
+        return data
     } catch (error) {
         console.error(error.message);
+        return
     }
 }

@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import AsideBar from "../components/asideBar/AsideBar";
-import CardInfo from "../components/cardInfo/CardInfo";
-import CardManager from "../components/cardManager/CardManager";
-import '../pages/General.css'
+import AsideBar from "../../components/asideBar/AsideBar";
+import '../general/General.css'
+import Lancar from "../Controle/lancar/Lancar";
+import Alterar from "../Controle/alterar/Alterar";
 
 export default function General(){
     
@@ -18,15 +18,10 @@ export default function General(){
                         </div>              
                     }></Route>
                     <Route path="/controle/lancar" element={
-                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
-                            <CardInfo></CardInfo>
-                            <CardManager></CardManager>
-                        </div>
+                        <Lancar></Lancar>
                     }></Route>
                     <Route path="/controle/alterar"  element={
-                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
-                            <CardInfo></CardInfo>
-                        </div>              
+                       <Alterar></Alterar>      
                     }></Route>
                     <Route path="/publicacoes/registrar"  element={
                         <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
@@ -35,7 +30,7 @@ export default function General(){
                     }></Route>
                     <Route path="/publicacoes/alterar"  element={
                         <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
-                            <CardInfo></CardInfo>
+                            <h1>Alterar Publicação</h1>
                         </div>              
                     }></Route>
                 </Routes>

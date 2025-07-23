@@ -1,6 +1,6 @@
 export default async function getControle(publiID, quantidade, mes, ano) {
     
-    const url = `http://localhost:8080/api/rest/v1/getControle?idpublicacao=${idpublicacao}&quantidade=${quantidade}&mes=${mes}&ano=${ano}`;
+    const url = `http://localhost:8080/api/rest/v1/getControle?idpublicacao=${publiID}&quantidade=${quantidade}&mes=${mes}&ano=${ano}`;
   
     try {
         const response = await fetch(url, {
@@ -10,11 +10,12 @@ export default async function getControle(publiID, quantidade, mes, ano) {
             },
         });
         if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
+            throw new Error(`Response status: ${response.status}`);
         }
-        const json = await response.json();
-        return json
+        const data = await response.json();
+        return data
     } catch (error) {
         console.error(error.message);
+        return 
     }
 }
