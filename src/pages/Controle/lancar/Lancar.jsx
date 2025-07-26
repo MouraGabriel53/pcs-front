@@ -3,7 +3,7 @@ import CardManager from "../../../components/cardManager/CardManager"
 
 export default function Lancar(){
     return(
-        <div className="d-flex m-auto gap-5">
+        <div className="d-flex m-auto gap-5 text-center">
             <CardInfo></CardInfo>
             <CardManager></CardManager>
         </div>

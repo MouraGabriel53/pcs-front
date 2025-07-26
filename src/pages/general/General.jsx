@@ -8,10 +8,9 @@ export default function General(){
     
     return(
         <div className="d-flex flex-1" style={{backgroundColor:"#F5F7FA"}}>
-            <AsideBar></AsideBar>
             <BrowserRouter>
+                <AsideBar></AsideBar>
                 <Routes>
-                    <Route path="/*" element={<h1>NOT FOUNDED 404</h1>}></Route>
                     <Route path="/dashboard"  element={
                         <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
                             <h1 className="m-auto">Dashboard</h1>
@@ -29,7 +28,7 @@ export default function General(){
                         </div>              
                     }></Route>
                     <Route path="/publicacoes/alterar"  element={
-                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
+                        <div className="d-flex justify-content-center my-auto" style={{width: '100%'}}>
                             <h1>Alterar Publicação</h1>
                         </div>              
                     }></Route>
