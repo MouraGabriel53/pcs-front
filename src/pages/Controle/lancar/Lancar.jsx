@@ -22,14 +22,20 @@ export default function Lancar(){
             setSuccessMessage(data.response)
             setShowSuccessModal(true)
         }
+
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
         }
+
+        sessionStorage.clear()
+        setQuantidade('')
+        setMes('')
+        setAno('')
     }
 
     return(
-        <div className="d-flex m-auto gap-5 text-center">
+        <div className="d-flex m-auto gap-5 text-center align-items-center">
             {showSuccessModal && <SuccessModal menssagem={successMessage} onClose={() => {setShowSuccessModal(false)}}></SuccessModal>}
             {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <CardInfo></CardInfo>

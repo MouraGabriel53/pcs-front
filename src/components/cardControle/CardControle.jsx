@@ -5,7 +5,8 @@ import InputQuantidade from "../input/quantidade/InputQuantidade";
 
 export default function CardControle({ btnName, onSubmit, setQuantidade, setMes, setAno }){
     return(
-        <form 
+        <form
+            style={{height: '20rem'}} 
             className="d-flex flex-column form-control bg-dark justify-content-center gap-2 rounded-3 p-4"
             onSubmit={onSubmit}>
             <InputQuantidade setQuantidade={setQuantidade}></InputQuantidade>
