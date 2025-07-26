@@ -2,6 +2,7 @@ import { useState } from "react";
 import LabelInfo from '../labelInfo/LabelInfo'
 import getPublicacoes from "../../features/getPublicacoes.js";
 import '../cardInfo/CardInfo.css'
+import ErrorModal from "../modal/errorModal/ErrorModal"
 
 export default function CardInfo(){
     const [codigoPubli, setCodigoPubli] = useState('')
@@ -10,16 +11,25 @@ export default function CardInfo(){
     const [codigo, setCodigo] = useState('')
     const [nome, setNome] = useState('')
     const [tipo, setTipo] = useState('')
+    const [showErrorModal, setShowErrorModal] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
 
-    const handlerSubmit = async (event) => {
-    event.preventDefault()
-    const response = await getPublicacoes(codigoPubli)
-    setPublicacaoId(response.PUBLICACAOID)
-    setNumItem(response.NITEM)
-    setCodigo(response.CODIGO)
-    setNome(response.NOME)
-    setTipo(response.TIPO)
-    sessionStorage.setItem("PUBLICACAOID", response.PUBLICACAOID)
+    const handlerSubmit = async (e) => {
+    e.preventDefault()
+    const data = await getPublicacoes(codigoPubli)
+    console.log(data.error)
+    if (data.response != null) {
+        setPublicacaoId(data.response[0].PUBLICACAOID)
+        setNumItem(data.response[0].NITEM)
+        setCodigo(data.response[0].CODIGO)
+        setNome(data.response[0].NOME)
+        setTipo(data.response[0].TIPO)
+        sessionStorage.setItem("PUBLICACAOID", response.PUBLICACAOID)
+    }
+    if (data.error != null) {
+        setErrorMessage(data.error)
+        setShowErrorModal(true)
+    }
 }
 
     const dataPubli = {
@@ -31,6 +41,7 @@ export default function CardInfo(){
 }
     return(
         <div> 
+             {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <form className="d-flex mb-3" onSubmit={handlerSubmit} type="submit">
                 <input 
                     name="search"
@@ -38,8 +49,8 @@ export default function CardInfo(){
                     type="search" 
                     placeholder="Pesquisar" 
                     aria-label="Search" 
-                    onChange={(event) => {
-                        setCodigoPubli(event.target.value)                        
+                    onChange={(e) => {
+                        setCodigoPubli(e.target.value)                        
                 }}></input>
                 <button className="btn btn-outline-success" type="submit">Pesquisar</button>
             </form>

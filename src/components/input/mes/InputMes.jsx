@@ -1,11 +1,13 @@
-export default function InputMes({ setMes }){
+export default function InputMes({ setMes, mes }){
 
     return(
         <div className="text-light text-center">
             <h4>Mês</h4>
                 <select 
-                    name='mouth'
+                    value={mes}
+                    name='mes'
                     className="form-select" 
+                    aria-label="select mes" 
                     onChange={(e) => setMes(e.target.value)}>
                     <option value="">Mês:</option>
                     {[...Array(12)].map((_, i) => (

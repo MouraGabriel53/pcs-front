@@ -22,12 +22,10 @@ export default function Lancar(){
             setSuccessMessage(data.response)
             setShowSuccessModal(true)
         }
-
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
         }
-
         sessionStorage.clear()
         setQuantidade('')
         setMes('')
@@ -45,6 +43,9 @@ export default function Lancar(){
                 setQuantidade={setQuantidade}
                 setMes={setMes}
                 setAno={setAno}
+                quantidade={quantidade}
+                mes={mes}
+                ano={ano}
                 ></CardControle>
         </div>
     )

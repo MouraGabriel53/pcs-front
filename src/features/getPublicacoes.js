@@ -13,9 +13,19 @@ export default async function getPublicacoes(codigoPubli) {
             throw new Error(`Response status: ${response.status}`);
         }
         const data = await response.json();
-        return data.response[0]
+        if (data.response == null) {
+            const data = {
+                "error": "publicação não cadastrada!"
+            }
+            return data
+        } else {
+            return data
+        }
     } catch (error) {
         console.error(error.message);
-        return
+        const data = {
+            "error": "operação falhou!"
+        }
+        return data
     }
 }

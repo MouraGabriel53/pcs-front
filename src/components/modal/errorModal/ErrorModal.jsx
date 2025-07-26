@@ -1,4 +1,4 @@
-export default function SuccessModal({ onClose, menssagem }) {
+export default function ErrorModal({ onClose, menssagem }) {
   const formatMessage = () => {
     const message = menssagem[0].toUpperCase() + menssagem.substring(1);
     return message
