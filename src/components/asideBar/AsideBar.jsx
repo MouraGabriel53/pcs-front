@@ -1,13 +1,16 @@
 import "../asideBar/AsideBar.css"
+import Logo from '../../assets/logo.png'
 
 export default function AsideBar() {
     return(
         <aside className="sidebar p-2 bg-dark">
-            <div className="d-flex fs-1 gap-3 my-3 justify-content-center">
-                <a 
-                className="rounded-circle bg-danger" 
-                href="" 
-                style={{width:'3rem', height:'3rem'}}></a>
+            <div className="d-flex fs-1 gap-3 my-3 justify-content-center align-items-center">
+                <img
+                    className="" 
+                    src={Logo}
+                    alt="logo"
+                    style={{width: '3rem', height: '3rem'}}
+                ></img>
                 <span className="text-white" style={{all: 'unset'}}>PCS</span>
             </div>
             <ul className="sidebar-nav list-group gap-2 fs-5 tex">

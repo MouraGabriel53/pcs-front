@@ -16,6 +16,9 @@ export default async function postControle(publiID, quantidade, mes, ano) {
         return data
     } catch (error) {
         console.error(error.message);
-        return
+        const data = {
+            "error": "a operação falhou!"
+        }
+        return data
     }
 }
