@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Filter from "../../../components/filter/Filter"
-import Table from "../../../components/table/Table"
+import TableControle from "../../../components/table/tableControle/Table"
 import CardControle from '../../../components/cardControle/CardControle'
 import SuccessModal from "../../../components/modal/successModal/SuccessModal"
 import ErrorModal from "../../../components/modal/errorModal/ErrorModal"
@@ -64,9 +64,9 @@ export default function Alterar(){
             <div className="d-flex flex-column gap-2">
                 <Filter 
                     setIsChanged={setIsChanged} isChanged={isChanged}></Filter>
-                <Table 
+                <TableControle 
                     isChanged={isChanged} 
-                    setSelectedControleID={setSelectedControleID}></Table>
+                    setSelectedControleID={setSelectedControleID}></TableControle>
             </div>
             <div>
                 <div className="form-control mb-2">Selecionado: {selectedControleID}</div>

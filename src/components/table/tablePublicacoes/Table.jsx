@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import getControle from "../../features/api/controle/getControle"
+import getControle from "../../../features/api/controle/getControle"
 
-export default function Table({ setSelectedControleID, isChanged }){ 
+export default function TablePublicacoes({ setSelectedControleID, isChanged }){ 
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function Table({ setSelectedControleID, isChanged }){
     }, [isChanged]);
      
     return (
-        <div style={{ width: '60rem', height: '30rem', overflowY: 'auto' }}>
+        <div style={{ width: '60rem', height: '30rem', overflowY: 'auto' }}>H
             <table className="table table-striped table-hover m-0">
                 <thead className="text-center"
                     style={{
@@ -25,6 +25,8 @@ export default function Table({ setSelectedControleID, isChanged }){
                     <tr>
                         <th scope="col">CONTROLEID</th>
                         <th scope="col">PUBLICACAOID</th>
+                        <th scope="col">CODIGO</th>
+                        <th scope="col">NOME</th>
                         <th scope="col">QUANTIDADE</th>
                         <th scope="col">MÊS</th>
                         <th scope="col">ANO</th>
@@ -35,6 +37,8 @@ export default function Table({ setSelectedControleID, isChanged }){
                         <tr key={item.CONTROLEID} id={item.CONTROLEID} className="text-center" onClick={(e) => {setSelectedControleID(e.currentTarget.id)}}>
                             <td>{item.CONTROLEID}</td>
                             <td>{item.PUBLICACAOID}</td>
+                            <td>{item.CODIGO}</td>
+                            <td>{item.NOME}</td>
                             <td>{item.QUANTIDADE}</td>
                             <td>{item.MES}</td>
                             <td>{item.ANO}</td>

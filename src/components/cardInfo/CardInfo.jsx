@@ -54,7 +54,7 @@ export default function CardInfo(){
                 }}></input>
                 <button className="btn btn-outline-success" type="submit">Pesquisar</button>
             </form>
-            <div className="overflow-y-scroll bg-dark rounded-3 p-3" style={{maxHeight:'20rem'}}>
+            <div className="bg-dark rounded-3 p-3">
                 {
                     Object.values(dataPubli).map((value, key) => {
                         return(
