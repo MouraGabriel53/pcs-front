@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import getControle from "../../../features/api/controle/getControle"
+import getPublicacoes from '../../../features/api/publicacoes/getPublicacoes'
 
-export default function TablePublicacoes({ setSelectedControleID, isChanged }){ 
+export default function TablePublicacoes({ setSelectedPublicacaoID, isChanged }){ 
     const [data, setData] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getControle();
+            const data = await getPublicacoes()
             setData(data);
         };
         fetchData();
@@ -23,25 +23,21 @@ export default function TablePublicacoes({ setSelectedControleID, isChanged }){
                         zIndex: 2
                     }}>
                     <tr>
-                        <th scope="col">CONTROLEID</th>
                         <th scope="col">PUBLICACAOID</th>
+                        <th scope="col">NITEM</th>
                         <th scope="col">CODIGO</th>
                         <th scope="col">NOME</th>
-                        <th scope="col">QUANTIDADE</th>
-                        <th scope="col">MÊS</th>
-                        <th scope="col">ANO</th>
+                        <th scope="col">TIPO</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} id={item.CONTROLEID} className="text-center" onClick={(e) => {setSelectedControleID(e.currentTarget.id)}}>
-                            <td>{item.CONTROLEID}</td>
+                        <tr key={item.PUBLICACAOID} id={item.PUBLICACAOID} className="text-center" onClick={(e) => {setSelectedPublicacaoID(e.currentTarget.id)}}>
                             <td>{item.PUBLICACAOID}</td>
+                            <td>{item.NITEM}</td>
                             <td>{item.CODIGO}</td>
                             <td>{item.NOME}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
+                            <td>{item.TIPO}</td>
                         </tr>
                     ))}
                 </tbody>

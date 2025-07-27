@@ -1,6 +1,6 @@
-export default async function deletePublicacoes() {
-    const publiID = 135
-    const url = `http://localhost:8080/api/rest/v1/deletePublicacoes/${publiID}`;
+export default async function deletePublicacoes(selectedPublicacaoID) {
+
+    const url = `http://localhost:8080/api/rest/v1/deletePublicacoes/${selectedPublicacaoID}`;
   
     try {
         const response = await fetch(url, {

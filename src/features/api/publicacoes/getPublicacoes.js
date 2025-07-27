@@ -1,6 +1,6 @@
-export default async function getPublicacoes(codigoPubli) {
+export default async function getPublicacoes() {
     
-    const url = `http://localhost:8080/api/rest/v1/getPublicacoes?idpublicacao=&nItem=&codigo=${codigoPubli}&nome=&tipo=`;
+    const url = `http://localhost:8080/api/rest/v1/getPublicacoes?idpublicacao=&nItem=&codigo=&nome=&tipo=`;
   
     try {
         const response = await fetch(url, {
@@ -13,19 +13,9 @@ export default async function getPublicacoes(codigoPubli) {
             throw new Error(`Response status: ${response.status}`);
         }
         const data = await response.json();
-        if (data.response == null) {
-            const data = {
-                "error": "publicação não cadastrada!"
-            }
-            return data
-        } else {
-            return data
-        }
+        return data.response
     } catch (error) {
         console.error(error.message);
-        const data = {
-            "error": "operação falhou!"
-        }
-        return data
+        return 
     }
 }

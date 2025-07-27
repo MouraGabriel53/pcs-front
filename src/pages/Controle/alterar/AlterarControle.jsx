@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Filter from "../../../components/filter/Filter"
-import TableControle from "../../../components/table/tableControle/Table"
+import TableControle from "../../../components/table/tableControle/TableControle"
 import CardControle from '../../../components/cardControle/CardControle'
 import SuccessModal from "../../../components/modal/successModal/SuccessModal"
 import ErrorModal from "../../../components/modal/errorModal/ErrorModal"
