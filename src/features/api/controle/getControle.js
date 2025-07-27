@@ -1,8 +1,8 @@
 export default async function getControle() {
     const publiID = ''
     const quantidade = ''
-    const mes = ''
-    const ano = ''
+    const mes = sessionStorage.getItem('MES')
+    const ano = sessionStorage.getItem('ANO')
 
     const url = `http://localhost:8080/api/rest/v1/getControle?idpublicacao=${publiID}&quantidade=${quantidade}&mes=${mes}&ano=${ano}`;
   

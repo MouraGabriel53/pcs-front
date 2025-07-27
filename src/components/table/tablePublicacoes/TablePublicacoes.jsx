@@ -7,7 +7,7 @@ export default function TablePublicacoes({ setSelectedPublicacaoID, isChanged })
     useEffect(() => {
         const fetchData = async () => {
             const data = await getPublicacoes()
-            setData(data.response);
+            setData(data);
         };
         fetchData();
     }, [isChanged]);
