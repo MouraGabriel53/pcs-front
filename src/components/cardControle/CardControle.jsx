@@ -1,6 +1,7 @@
-import InputAno from "../input/ano/InputAno";
-import InputMes from "../input/mes/InputMes";
-import InputQuantidade from "../input/quantidade/InputQuantidade";
+import Button from "../button/Button";
+import InputAno from "../input/controle/ano/InputAno";
+import InputMes from "../input/controle/mes/InputMes";
+import InputQuantidade from "../input/controle/quantidade/InputQuantidade";
 
 export default function CardControle({ btnName, onSubmit, setQuantidade, setMes, setAno, quantidade, mes, ano, showDeleteBtn, handleDelete, isRequiredQuantidade }){
     
@@ -19,17 +20,11 @@ export default function CardControle({ btnName, onSubmit, setQuantidade, setMes,
             <InputAno 
                 ano={ano} 
                 setAno={setAno}></InputAno>
-            <div className="d-flex gap-2 justify-content-center">
-                {showDeleteBtn &&
-                    <button 
-                    className="btn btn-outline-danger" 
-                    type="button"
-                    onClick={handleDelete}>Deletar</button>
-                }
-                <button 
-                    className="btn btn-success" 
-                    type="submit">{btnName}</button>                
-            </div>
+            <Button
+                showDeleteBtn={showDeleteBtn}
+                handleDelete={handleDelete} 
+                btnName={btnName}  
+            ></Button>
         </form>
     )
 }

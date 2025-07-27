@@ -7,7 +7,7 @@ export default function InputQuantidade({ setQuantidade, quantidade, isRequired 
                     name='quantidade'
                     type="text" 
                     className="form-control" 
-                    aria-label="input quantidade" 
+                    aria-label="input-quantidade" 
                     placeholder='Quantidade'
                     value={quantidade}
                     required={isRequired}

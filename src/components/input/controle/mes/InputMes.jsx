@@ -7,7 +7,7 @@ export default function InputMes({ setMes, mes }){
                     value={mes}
                     name='mes'
                     className="form-select" 
-                    aria-label="select mes" 
+                    aria-label="select-mes" 
                     onChange={(e) => setMes(e.target.value)}>
                     <option value="">Mês:</option>
                     {[...Array(12)].map((_, i) => (

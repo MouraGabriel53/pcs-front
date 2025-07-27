@@ -7,7 +7,7 @@ export default function InputAno({ setAno, ano }){
                     value={ano}
                     name='ano'
                     className="form-select" 
-                    aria-label="select ano" 
+                    aria-label="select-ano" 
                     onChange={(e) => setAno(e.target.value)}>
                     <option value="">Ano:</option>
                     {[-1, 0, 1].map((offset, i) => {

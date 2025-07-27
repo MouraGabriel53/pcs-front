@@ -2,7 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import AsideBar from "../../components/asideBar/AsideBar";
 import '../general/General.css'
 import Lancar from "../Controle/lancar/Lancar";
-import Alterar from "../Controle/alterar/Alterar";
+import AlterarControle from '../controle/alterar/AlterarControle' 
+import AlterarPublicacao from '../publicacoes/alterar/AlterarPublicacao'
+import Registrar from "../publicacoes/registrar/Registrar";
 
 export default function General(){
     
@@ -20,17 +22,13 @@ export default function General(){
                         <Lancar></Lancar>
                     }></Route>
                     <Route path="/controle/alterar"  element={
-                       <Alterar></Alterar>      
+                       <AlterarControle></AlterarControle>      
                     }></Route>
                     <Route path="/publicacoes/registrar"  element={
-                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
-                            <h1 className="m-auto">Registrar Publicação</h1>
-                        </div>              
+                        <Registrar></Registrar>              
                     }></Route>
                     <Route path="/publicacoes/alterar"  element={
-                        <div className="d-flex justify-content-center my-auto" style={{width: '100%'}}>
-                            <h1>Alterar Publicação</h1>
-                        </div>              
+                        <AlterarPublicacao></AlterarPublicacao>
                     }></Route>
                 </Routes>
             </BrowserRouter>
