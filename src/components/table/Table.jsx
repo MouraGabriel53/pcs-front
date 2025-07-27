@@ -1,21 +1,28 @@
 import { useEffect, useState } from "react"
 import getControle from "../../features/getControle"
 
-export default function Table(){ 
+export default function Table({ setSelectControleID, isChanged }){ 
     const [data, setData] = useState([])
 
-    const handleGet = async () => {
-        console.log("chamou")
-        const data = await getControle()
-        console.log(data)
-        setData(data)
-    }
-    return(
-        <div className="d-flex flex-column w-100 h-100 overflow-hidden">
-            <div className="text-center overflow-auto" style={{ height: '5rem'}}>
-                <table className="table table-striped table-hover m-0">
-                <thead>
-                    <tr className="text-center">
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getControle();
+            setData(data);
+        };
+        fetchData();
+    }, [isChanged]);
+     
+    return (
+        <div style={{ width: '60rem', height: '30rem', overflowY: 'auto' }}>
+            <table className="table table-striped table-hover m-0">
+                <thead className="text-center"
+                    style={{
+                        position: 'sticky',
+                        top: 0,
+                        backgroundColor: '#fff',
+                        zIndex: 2
+                    }}>
+                    <tr>
                         <th scope="col">CONTROLEID</th>
                         <th scope="col">PUBLICACAOID</th>
                         <th scope="col">QUANTIDADE</th>
@@ -24,17 +31,8 @@ export default function Table(){
                     </tr>
                 </thead>
                 <tbody>
-                     {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} className="text-center">
-                            <td>{item.CONTROLEID}</td>
-                            <td>{item.PUBLICACAOID}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
-                        </tr>
-                    ))}
                     {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} className="text-center">
+                        <tr key={item.CONTROLEID} id={item.CONTROLEID} className="text-center" onClick={(e) => {setSelectControleID(e.currentTarget.id)}}>
                             <td>{item.CONTROLEID}</td>
                             <td>{item.PUBLICACAOID}</td>
                             <td>{item.QUANTIDADE}</td>
@@ -42,65 +40,8 @@ export default function Table(){
                             <td>{item.ANO}</td>
                         </tr>
                     ))}
-                    {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} className="text-center">
-                            <td>{item.CONTROLEID}</td>
-                            <td>{item.PUBLICACAOID}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
-                        </tr>
-                    ))}
-                    {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} className="text-center">
-                            <td>{item.CONTROLEID}</td>
-                            <td>{item.PUBLICACAOID}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
-                        </tr>
-                    ))}
-                    {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} className="text-center">
-                            <td>{item.CONTROLEID}</td>
-                            <td>{item.PUBLICACAOID}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
-                        </tr>
-                    ))}
-                    {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} className="text-center">
-                            <td>{item.CONTROLEID}</td>
-                            <td>{item.PUBLICACAOID}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
-                        </tr>
-                    ))}
-                    {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} className="text-center">
-                            <td>{item.CONTROLEID}</td>
-                            <td>{item.PUBLICACAOID}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
-                        </tr>
-                    ))}
-                    {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} className="text-center">
-                            <td>{item.CONTROLEID}</td>
-                            <td>{item.PUBLICACAOID}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
-                        </tr>
-                    ))}
-                    
                 </tbody>
             </table>
-            </div>
-            <button type='button' onClick={handleGet}></button>
         </div>
     )
 }

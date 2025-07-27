@@ -24,7 +24,7 @@ export default function CardInfo(){
         setCodigo(data.response[0].CODIGO)
         setNome(data.response[0].NOME)
         setTipo(data.response[0].TIPO)
-        sessionStorage.setItem("PUBLICACAOID", response.PUBLICACAOID)
+        sessionStorage.setItem("PUBLICACAOID", data.response[0].PUBLICACAOID)
     }
     if (data.error != null) {
         setErrorMessage(data.error)

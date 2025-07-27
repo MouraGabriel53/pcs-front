@@ -1,7 +1,7 @@
 import { useState } from "react"
 import getControle from "../../features/getControle"
 
-export default function Filter() {
+export default function Filter({ setIsChanged, isChanged}) {
     const [mes, setMes] = useState('')
     const [ano, setAno] = useState('')
     const [tipo, setTipo] = useState('')
@@ -12,6 +12,7 @@ export default function Filter() {
         sessionStorage.setItem('MES', mes)
         sessionStorage.setItem('ANO', ano)
         sessionStorage.setItem('TIPO', tipo)
+        setIsChanged(!isChanged)
     }
 
     return(
