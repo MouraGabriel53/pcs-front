@@ -13,7 +13,7 @@ export default function TablePublicacoes({ setSelectedPublicacaoID, isChanged })
     }, [isChanged]);
      
     return (
-        <div style={{ width: '60rem', height: '30rem', overflowY: 'auto' }}>H
+        <div style={{ width: '60rem', height: '30rem', overflowY: 'auto' }}>
             <table className="table table-striped table-hover m-0">
                 <thead className="text-center"
                     style={{

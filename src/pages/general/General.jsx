@@ -14,9 +14,7 @@ export default function General(){
                 <AsideBar></AsideBar>
                 <Routes>
                     <Route path="/dashboard"  element={
-                        <div className="d-flex p-3 m-2 border-dashed" style={{width: '100%'}}>
-                            <h1 className="m-auto">Dashboard</h1>
-                        </div>              
+                        <h1 className="m-auto">🚀 Bem-vindo!</h1>         
                     }></Route>
                     <Route path="/controle/lancar" element={
                         <Lancar></Lancar>
