@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import getControle from "../../features/api/controle/getControle"
 
-export default function Table({ setSelectControleID, isChanged }){ 
+export default function Table({ setSelectedControleID, isChanged }){ 
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -32,7 +32,7 @@ export default function Table({ setSelectControleID, isChanged }){
                 </thead>
                 <tbody>
                     {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} id={item.CONTROLEID} className="text-center" onClick={(e) => {setSelectControleID(e.currentTarget.id)}}>
+                        <tr key={item.CONTROLEID} id={item.CONTROLEID} className="text-center" onClick={(e) => {setSelectedControleID(e.currentTarget.id)}}>
                             <td>{item.CONTROLEID}</td>
                             <td>{item.PUBLICACAOID}</td>
                             <td>{item.QUANTIDADE}</td>

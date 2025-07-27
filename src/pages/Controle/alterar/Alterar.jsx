@@ -1,15 +1,15 @@
 import { useState } from "react"
 import Filter from "../../../components/filter/Filter"
 import Table from "../../../components/table/Table"
-import CardInfo from '../../../components/cardInfo/CardInfo'
 import CardControle from '../../../components/cardControle/CardControle'
 import SuccessModal from "../../../components/modal/successModal/SuccessModal"
 import ErrorModal from "../../../components/modal/errorModal/ErrorModal"
 import putControle from '../../../features/api/controle/putControle'
+import deleteControle from "../../../features/api/controle/deleteControle"
 
 export default function Alterar(){
     const [isChanged, setIsChanged] = useState(false)
-    const [selectControleID, setSelectControleID] = useState(0)
+    const [selectedControleID, setSelectedControleID] = useState(null)
     const [quantidade, setQuantidade] = useState('')
     const [mes, setMes] = useState('')
     const [ano, setAno] = useState('')
@@ -21,7 +21,7 @@ export default function Alterar(){
     const onSubmit = async (e) => {
             e.preventDefault()
             const publiID = sessionStorage.getItem('PUBLICACAOID')
-            const data = await putControle(selectControleID, publiID, quantidade, mes, ano)
+            const data = await putControle(selectedControleID, publiID, quantidade, mes, ano)
             if (data.response != null) {
                 setSuccessMessage(data.response)
                 setShowSuccessModal(true)
@@ -31,11 +31,31 @@ export default function Alterar(){
                 setShowErrorModal(true)
             }
             sessionStorage.clear()
+            setSelectedControleID(null)
             setQuantidade('')
             setMes('')
             setAno('')
             setIsChanged(!isChanged)
         }
+
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        const data = await deleteControle(selectedControleID)
+        if (data.response != null) {
+            setSuccessMessage(data.response)
+            setShowSuccessModal(true)
+        }
+        if (data.error != null) {
+            setErrorMessage(data.error)
+            setShowErrorModal(true)
+        }
+        sessionStorage.clear()
+        setSelectedControleID(null)
+        setQuantidade('')
+        setMes('')
+        setAno('')
+        setIsChanged(!isChanged)
+    }
 
     return(
         <div className="d-flex m-auto align-items-center gap-5">
@@ -46,11 +66,14 @@ export default function Alterar(){
                     setIsChanged={setIsChanged} isChanged={isChanged}></Filter>
                 <Table 
                     isChanged={isChanged} 
-                    setSelectControleID={setSelectControleID}></Table>
+                    setSelectedControleID={setSelectedControleID}></Table>
             </div>
             <div>
-                <div className="form-control mb-2">Selecionado: {selectControleID}</div>
+                <div className="form-control mb-2">Selecionado: {selectedControleID}</div>
                 <CardControle
+                    isRequiredQuantidade={false}
+                    showDeleteBtn={true}
+                    handleDelete={handleDelete}
                     isChanged={isChanged}
                     setIsChanged={setIsChanged}
                     btnName='Alterar'

@@ -1,5 +1,5 @@
 
-export default function InputQuantidade({ setQuantidade, quantidade }){
+export default function InputQuantidade({ setQuantidade, quantidade, isRequired }){
     return(
         <div className="text-light text-center">
             <h4>Quantidade</h4>
@@ -10,7 +10,7 @@ export default function InputQuantidade({ setQuantidade, quantidade }){
                     aria-label="input quantidade" 
                     placeholder='Quantidade'
                     value={quantidade}
-                    required
+                    required={isRequired}
                     onChange={(e) => {setQuantidade(e.target.value)}}></input>
         </div>
     )

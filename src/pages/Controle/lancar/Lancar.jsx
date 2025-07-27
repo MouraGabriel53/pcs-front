@@ -38,6 +38,7 @@ export default function Lancar(){
             {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <CardInfo></CardInfo>
             <CardControle 
+                isRequiredQuantidade={true}
                 btnName='Lançar'
                 onSubmit={onSubmit}
                 setQuantidade={setQuantidade}
