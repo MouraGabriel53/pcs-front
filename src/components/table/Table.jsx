@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import getControle from "../../features/getControle"
+import getControle from "../../features/api/controle/getControle"
 
 export default function Table({ setSelectControleID, isChanged }){ 
     const [data, setData] = useState([])

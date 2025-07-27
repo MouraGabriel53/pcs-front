@@ -1,5 +1,4 @@
 import { useState } from "react"
-import getControle from "../../features/getControle"
 
 export default function Filter({ setIsChanged, isChanged}) {
     const [mes, setMes] = useState('')

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LabelInfo from '../labelInfo/LabelInfo'
-import getPublicacoes from "../../features/getPublicacoes.js";
+import getPublicacoes from "../../features/api/publicacoes/getPublicacoes";
 import '../cardInfo/CardInfo.css'
 import ErrorModal from "../modal/errorModal/ErrorModal"
 

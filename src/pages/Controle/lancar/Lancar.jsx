@@ -1,7 +1,7 @@
 import { useState } from "react"
 import CardControle from "../../../components/cardControle/CardControle"
 import CardInfo from "../../../components/cardInfo/CardInfo"
-import postControle from '../../../features/postControle'
+import postControle from '../../../features/api/controle/postControle'
 import SuccessModal from "../../../components/modal/successModal/SuccessModal"
 import ErrorModal from "../../../components/modal/errorModal/ErrorModal"
 

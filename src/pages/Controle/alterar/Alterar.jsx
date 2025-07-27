@@ -5,7 +5,7 @@ import CardInfo from '../../../components/cardInfo/CardInfo'
 import CardControle from '../../../components/cardControle/CardControle'
 import SuccessModal from "../../../components/modal/successModal/SuccessModal"
 import ErrorModal from "../../../components/modal/errorModal/ErrorModal"
-import putControle from '../../../features/putControle'
+import putControle from '../../../features/api/controle/putControle'
 
 export default function Alterar(){
     const [isChanged, setIsChanged] = useState(false)
