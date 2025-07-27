@@ -53,7 +53,7 @@ export default function Filter({ setIsChanged, isChanged}) {
                 <option value="2025">Livros</option>
                 <option value="2025">Revistas</option>
             </select>
-            <button type="submit" className="btn btn-outline-success">Filtrar</button>
+            {/* <button type="submit" className="btn btn-outline-success">Filtrar</button> */}
         </form>
     )
 }
