@@ -1,4 +1,4 @@
-export default function InputTipo({ tipo, setTipo }){
+export default function InputTipo({ tipo, setTipo, isRequired }){
     return(
         <div className="text-light text-center"> 
             <h4>Tipo</h4>
@@ -7,6 +7,7 @@ export default function InputTipo({ tipo, setTipo }){
                 className="form-select"
                 aria-label="select-tipo"
                 value={tipo}
+                required={isRequired}
                 onChange={(e) => {setTipo(e.target.value)}}>
                 <option value="">Tipo:</option>
                 <option value="Bíblia">Bíblia</option>

@@ -4,12 +4,13 @@ import InputNome from "../input/publicacao/nome/InputNome";
 import InputTipo from "../input/publicacao/tipo/InputTipo";
 import Button from '../button/Button'
 
-export default function CardPublicacao({ showDeleteBtn, handleDelete, btnName, onSubmit, isRequiredCodigo, isRequiredNome, codigo, setCodigo, numeroItem, setNumeroItem, nome, setNome, tipo, setTipo}) {
+export default function CardPublicacao({ isRequiredTipo, isRequiredNItem, showDeleteBtn, handleDelete, btnName, onSubmit, isRequiredCodigo, isRequiredNome, codigo, setCodigo, numeroItem, setNumeroItem, nome, setNome, tipo, setTipo}) {
     return(
         <form 
             className="d-flex flex-column form-control bg-dark justify-content-center gap-2 rounded-3 p-4"
             onSubmit={onSubmit}>
             <InputNItem
+                isRequired={isRequiredNItem}
                 numeroItem={numeroItem}
                 setNumeroItem={setNumeroItem}
             ></InputNItem>
@@ -24,6 +25,7 @@ export default function CardPublicacao({ showDeleteBtn, handleDelete, btnName, o
                 isRequired={isRequiredNome}
             ></InputNome>
             <InputTipo
+                isRequired={isRequiredTipo}
                 tipo={tipo}
                 setTipo={setTipo}
             ></InputTipo>

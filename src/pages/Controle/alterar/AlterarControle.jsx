@@ -20,8 +20,7 @@ export default function Alterar(){
 
     const onSubmit = async (e) => {
             e.preventDefault()
-            const publiID = sessionStorage.getItem('PUBLICACAOID')
-            const data = await putControle(selectedControleID, publiID, quantidade, mes, ano)
+            const data = await putControle(selectedControleID, quantidade, mes, ano)
             if (data.response != null) {
                 setSuccessMessage(data.response)
                 setShowSuccessModal(true)
@@ -30,7 +29,6 @@ export default function Alterar(){
                 setErrorMessage(data.error)
                 setShowErrorModal(true)
             }
-            sessionStorage.clear()
             setSelectedControleID(null)
             setQuantidade('')
             setMes('')
@@ -49,7 +47,6 @@ export default function Alterar(){
             setErrorMessage(data.error)
             setShowErrorModal(true)
         }
-        sessionStorage.clear()
         setSelectedControleID(null)
         setQuantidade('')
         setMes('')
@@ -63,7 +60,8 @@ export default function Alterar(){
             {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <div className="d-flex flex-column gap-2">
                 <Filter 
-                    setIsChanged={setIsChanged} isChanged={isChanged}></Filter>
+                    setIsChanged={setIsChanged} 
+                    isChanged={isChanged}></Filter>
                 <TableControle 
                     isChanged={isChanged} 
                     setSelectedControleID={setSelectedControleID}></TableControle>

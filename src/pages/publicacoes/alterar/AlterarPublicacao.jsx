@@ -30,7 +30,6 @@ export default function AlterarPublicacao() {
             setErrorMessage(data.error)
             setShowErrorModal(true)
         }
-        sessionStorage.clear()
         setSelectedPublicacaoID(null)
         setNumeroItem('')
         setCodigo('')
@@ -50,7 +49,6 @@ export default function AlterarPublicacao() {
             setErrorMessage(data.error)
             setShowErrorModal(true)
         }
-        sessionStorage.clear()
         setSelectedPublicacaoID(null)
         setNumeroItem('')
         setCodigo('')
@@ -64,7 +62,10 @@ export default function AlterarPublicacao() {
             {showSuccessModal && <SuccessModal menssagem={successMessage} onClose={() => {setShowSuccessModal(false)}}></SuccessModal>}
             {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <div className="d-flex flex-column gap-2">
-                <Filter></Filter>
+                <Filter
+                    setIsChanged={setIsChanged} 
+                    isChanged={isChanged}
+                ></Filter>
                 <TablePublicacoes
                     isChanged={isChanged}
                     setSelectedPublicacaoID={setSelectedPublicacaoID} 

@@ -44,6 +44,8 @@ export default function Registrar() {
                 setNome={setNome}
                 tipo={tipo}
                 setTipo={setTipo}
+                isRequiredTipo={true}
+                isRequiredNItem={true}
                 isRequiredCodigo={true}
                 isRequiredNome={true}
                 onSubmit={onSubmit}

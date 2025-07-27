@@ -4,27 +4,20 @@ import getPublicacoes from "../../features/api/publicacoes/getPublicacoes";
 import '../cardInfo/CardInfo.css'
 import ErrorModal from "../modal/errorModal/ErrorModal"
 
-export default function CardInfo(){
-    const [codigoPubli, setCodigoPubli] = useState('')
-    const [publicacaoId, setPublicacaoId] = useState('')
-    const [nItem, setNumItem] = useState('')
-    const [codigo, setCodigo] = useState('')
-    const [nome, setNome] = useState('')
-    const [tipo, setTipo] = useState('')
+export default function CardInfo({ codigoPubli, nItem, codigo, nome, tipo, setCodigoPubli, setNumItem, setCodigo, setNome, setTipo, publicacaoId, setPublicacaoId }){
     const [showErrorModal, setShowErrorModal] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
 
     const handlerSubmit = async (e) => {
     e.preventDefault()
     const data = await getPublicacoes(codigoPubli)
-    console.log(data.error)
     if (data.response != null) {
         setPublicacaoId(data.response[0].PUBLICACAOID)
         setNumItem(data.response[0].NITEM)
         setCodigo(data.response[0].CODIGO)
         setNome(data.response[0].NOME)
         setTipo(data.response[0].TIPO)
-        sessionStorage.setItem("PUBLICACAOID", data.response[0].PUBLICACAOID)
+
     }
     if (data.error != null) {
         setErrorMessage(data.error)
@@ -40,7 +33,7 @@ export default function CardInfo(){
     5: {name: 'Tipo', value: tipo},
 }
     return(
-        <div> 
+        <div className="text-center"> 
              {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <form className="d-flex mb-3" onSubmit={handlerSubmit} type="submit">
                 <input 
@@ -50,9 +43,11 @@ export default function CardInfo(){
                     placeholder="Pesquisar" 
                     aria-label="Search" 
                     onChange={(e) => {
-                        setCodigoPubli(e.target.value)                        
+                    setCodigoPubli(e.target.value)                        
                 }}></input>
-                <button className="btn btn-outline-success" type="submit">Pesquisar</button>
+                <button 
+                    className="btn btn-outline-success" 
+                    type="submit">Pesquisar</button>
             </form>
             <div className="bg-dark rounded-3 p-3">
                 {
