@@ -1,6 +1,6 @@
 export default async function postControle(controleID, quantidade, mes, ano) {
     const publiID = ''
-    const url = `http://localhost:8080/api/rest/v1/putControle/${controleID}?publicacao=${publiID}&quantidade=${quantidade}&mes=${mes}&ano=${ano}`;
+    const url = `http://localhost:8080/api/rest/v1/putControle/${controleID}?publicacao=${publiID || ''}&quantidade=${quantidade || ''}&mes=${mes || ''}&ano=${ano || ''}`;
   
     try {
         const response = await fetch(url, {

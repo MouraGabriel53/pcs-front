@@ -11,6 +11,7 @@ export default function CardInfo({ codigoPubli, nItem, codigo, nome, tipo, setCo
     const handlerSubmit = async (e) => {
     e.preventDefault()
     const data = await getPublicacoes(codigoPubli)
+    console.log(data)
     if (data.response != null) {
         setPublicacaoId(data.response[0].PUBLICACAOID)
         setNumItem(data.response[0].NITEM)

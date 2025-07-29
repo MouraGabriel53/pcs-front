@@ -63,6 +63,8 @@ export default function AlterarPublicacao() {
             {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <div className="d-flex flex-column gap-2">
                 <Filter
+                    showMesAndAno={false}
+                    showTipo={true}
                     setIsChanged={setIsChanged} 
                     isChanged={isChanged}
                 ></Filter>

@@ -4,7 +4,7 @@ export default async function getControle() {
     const mes = sessionStorage.getItem('MES')
     const ano = sessionStorage.getItem('ANO')
 
-    const url = `http://localhost:8080/api/rest/v1/getControle?idpublicacao=${publiID}&quantidade=${quantidade}&mes=${mes}&ano=${ano}`;
+    const url = `http://localhost:8080/api/rest/v1/getControle?idpublicacao=${publiID || ''}&quantidade=${quantidade || ''}&mes=${mes || ''}&ano=${ano || ''}`;
   
     try {
         const response = await fetch(url, {

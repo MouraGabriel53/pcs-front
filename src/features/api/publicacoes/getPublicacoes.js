@@ -4,7 +4,7 @@ export default async function getPublicacoes(codigoPubli) {
    const nome = ''
    const tipo = sessionStorage.getItem('TIPO')
 
-    const url = `http://localhost:8080/api/rest/v1/getPublicacoes?idpublicacao=${idpublicacao}&nItem=${nItem}&codigo=${codigoPubli || ''}&nome=${nome}&tipo=${tipo}`;
+    const url = `http://localhost:8080/api/rest/v1/getPublicacoes?idpublicacao=${idpublicacao || ''}&nItem=${nItem || ''}&codigo=${codigoPubli || ''}&nome=${nome || ''}&tipo=${tipo || ''}`;
   
     try {
         const response = await fetch(url, {
@@ -17,7 +17,7 @@ export default async function getPublicacoes(codigoPubli) {
             throw new Error(`Response status: ${response.status}`);
         }
         const data = await response.json();
-        return data.response
+        return data
     } catch (error) {
         console.error(error.message);
         return 

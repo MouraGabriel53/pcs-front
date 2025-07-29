@@ -60,6 +60,8 @@ export default function Alterar(){
             {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <div className="d-flex flex-column gap-2">
                 <Filter 
+                    showMesAndAno={true}
+                    showTipo={false}
                     setIsChanged={setIsChanged} 
                     isChanged={isChanged}></Filter>
                 <TableControle 

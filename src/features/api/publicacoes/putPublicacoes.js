@@ -1,6 +1,6 @@
 export default async function putPublicacoes(selectedPublicacaoID, numeroItem, codigo, nome, tipo) {
     
-    const url = `http://localhost:8080/api/rest/v1/putPublicacoes/${selectedPublicacaoID}?nItem=${numeroItem}&codigo=${codigo}&nome=${nome}&tipo=${tipo}`;
+    const url = `http://localhost:8080/api/rest/v1/putPublicacoes/${selectedPublicacaoID}?nItem=${numeroItem || ''}&codigo=${codigo || ''}&nome=${nome || ''}&tipo=${tipo || ''}`;
   
     try {
         const response = await fetch(url, {
