@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes, Navigate  } from "react-router";
 import AsideBar from "../../components/asideBar/AsideBar";
 import '../general/General.css'
 import Lancar from "../Controle/lancar/Lancar";
@@ -28,6 +28,7 @@ export default function General(){
                     <Route path="/publicacoes/alterar"  element={
                         <AlterarPublicacao></AlterarPublicacao>
                     }></Route>
+                    <Route path='*' element={<Navigate to='/dashboard'/>}></Route>
                 </Routes>
             </BrowserRouter>
         </div>
