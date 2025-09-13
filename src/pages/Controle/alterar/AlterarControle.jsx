@@ -24,15 +24,12 @@ export default function Alterar(){
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
-            return
         }
         if (data.response != null) {
             setSuccessMessage(data.response)
             setShowSuccessModal(true)
-            return
         }
     
-        setSelectedControleID("")
         setQuantidade('')
         setMes('')
         setAno('')
@@ -45,12 +42,10 @@ export default function Alterar(){
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
-            return
         }
         if (data.response != null) {
             setSuccessMessage(data.response)
             setShowSuccessModal(true)
-            return
         }
 
         setSelectedControleID("")

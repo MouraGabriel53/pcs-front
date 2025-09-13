@@ -28,12 +28,10 @@ export default function Lancar(){
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
-            return
         }
         if (data.response != null) {
             setSuccessMessage(data.response)
             setShowSuccessModal(true)
-            return
         }
         setPublicacaoId('')
         setQuantidade('')

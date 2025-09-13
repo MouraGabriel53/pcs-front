@@ -14,7 +14,6 @@ export default function CardInfo({ codigoPubli, nItem, codigo, nome, tipo, setCo
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
-            return
         }
         if (data.response != null) {
             setPublicacaoId(data.response[0].PUBLICACAOID)
@@ -22,7 +21,6 @@ export default function CardInfo({ codigoPubli, nItem, codigo, nome, tipo, setCo
             setCodigo(data.response[0].CODIGO)
             setNome(data.response[0].NOME)
             setTipo(data.response[0].TIPO)
-            return
         }
     }
 

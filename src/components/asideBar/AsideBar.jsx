@@ -3,9 +3,10 @@ import Logo from '../../assets/logo.png'
 
 export default function AsideBar() {
     return(
-        <aside className="sidebar p-2 bg-dark">
+        <aside className="sidebar p-2 bg-dark d-flex flex-column justify-content-between">
 
-            <div className="d-flex fs-1 gap-3 my-3 justify-content-center align-items-center">
+            <div>
+                <div className="d-flex fs-1 gap-3 my-3 justify-content-center align-items-center">
                 <img
                     className="" 
                     src={Logo}
@@ -63,6 +64,11 @@ export default function AsideBar() {
                         </div>
                     </div>
                 </ul>
+            </div>
+
+            <footer>
+                <p className="text-white" style={{fontSize: "0.8rem"}}>&copy; 2025 Gabriel Moura</p>
+            </footer>
 
         </aside>
     )

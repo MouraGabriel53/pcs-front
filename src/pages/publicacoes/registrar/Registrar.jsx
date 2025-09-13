@@ -5,7 +5,6 @@ import SuccessModal from "../../../components/modal/successModal/SuccessModal"
 import ErrorModal from "../../../components/modal/errorModal/ErrorModal"
 
 export default function Registrar() {
-    const [numeroItem, setNumeroItem] = useState('')
     const [codigo, setCodigo] = useState('')
     const [nome, setNome] = useState('')
     const [tipo, setTipo] = useState('')
@@ -17,19 +16,17 @@ export default function Registrar() {
 
     const onSubmit = async (e) => {
         e.preventDefault()
+        const numeroItem = 0
         const data = await postPublicacoes(numeroItem, codigo, nome, tipo)
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
-            return
         }
         if (data.response != null) {
             setSuccessMessage(data.response)
             setShowSuccessModal(true)
-            return
         }
 
-        setNumeroItem('')
         setCodigo('')
         setNome('')
         setTipo('')
@@ -40,8 +37,6 @@ export default function Registrar() {
             {showSuccessModal && <SuccessModal menssagem={successMessage} onClose={() => {setShowSuccessModal(false)}}></SuccessModal>}
             {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
             <CardPublicacao
-                numeroItem={numeroItem}
-                setNumeroItem={setNumeroItem}
                 codigo={codigo}
                 setCodigo={setCodigo}
                 nome={nome}

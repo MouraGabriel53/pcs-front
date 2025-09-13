@@ -10,7 +10,6 @@ import Filter from "../../../components/filter/Filter";
 export default function AlterarPublicacao() {
     const [isChanged, setIsChanged] = useState(false)
     const [selectedPublicacaoID, setSelectedPublicacaoID] = useState("")
-    const [numeroItem, setNumeroItem] = useState('')
     const [codigo, setCodigo] = useState('')
     const [nome, setNome] = useState('')
     const [tipo, setTipo] = useState('')
@@ -21,20 +20,17 @@ export default function AlterarPublicacao() {
 
     const onSubmit = async (e) => {
         e.preventDefault()
+        const numeroItem = 0
         const data = await putPublicacoes(selectedPublicacaoID, numeroItem, codigo, nome, tipo)
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
-            return
         }
         if (data.response != null) {
             setSuccessMessage(data.response)
             setShowSuccessModal(true)
-            return
         }
 
-        setSelectedPublicacaoID("")
-        setNumeroItem('')
         setCodigo('')
         setNome('')
         setTipo('')
@@ -47,16 +43,13 @@ export default function AlterarPublicacao() {
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
-            return
         }
         if (data.response != null) {
             setSuccessMessage(data.response)
             setShowSuccessModal(true)
-            return
         }
 
         setSelectedPublicacaoID("")
-        setNumeroItem('')
         setCodigo('')
         setNome('')
         setTipo('')
@@ -82,8 +75,6 @@ export default function AlterarPublicacao() {
             <div className="d-flex flex-column gap-2 align-items-center justify-content-center">
                 <div className="form-control mb-2">Selecionado: {selectedPublicacaoID}</div>
                 <CardPublicacao
-                    numeroItem={numeroItem}
-                    setNumeroItem={setNumeroItem}
                     codigo={codigo}
                     setCodigo={setCodigo}
                     nome={nome}
