@@ -6,14 +6,14 @@ export default function AsideBar() {
         <aside className="sidebar p-2 bg-dark d-flex flex-column justify-content-between">
 
             <div>
-                <div className="d-flex fs-1 gap-3 my-3 justify-content-center align-items-center">
+                <div className="d-flex fs-1 gap-2 my-3 justify-content-center align-items-center">
                 <img
                     className="" 
                     src={Logo}
                     alt="logo"
-                    style={{width: '3rem', height: '3rem'}}
+                    style={{width: '4rem', height: '4rem'}}
                 ></img>
-                <span className="text-white" style={{all: 'unset'}}>PCS</span>
+                <span className="text-white fs-2" style={{all: 'unset'}}>PCS</span>
             </div>
 
             <ul className="sidebar-nav list-group gap-2 fs-5 tex">
