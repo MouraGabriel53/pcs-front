@@ -9,7 +9,7 @@ import Filter from "../../../components/filter/Filter";
 
 export default function AlterarPublicacao() {
     const [isChanged, setIsChanged] = useState(false)
-    const [selectedPublicacaoID, setSelectedPublicacaoID] = useState(null)
+    const [selectedPublicacaoID, setSelectedPublicacaoID] = useState("")
     const [numeroItem, setNumeroItem] = useState('')
     const [codigo, setCodigo] = useState('')
     const [nome, setNome] = useState('')
@@ -22,15 +22,18 @@ export default function AlterarPublicacao() {
     const onSubmit = async (e) => {
         e.preventDefault()
         const data = await putPublicacoes(selectedPublicacaoID, numeroItem, codigo, nome, tipo)
-        if (data.response != null) {
-            setSuccessMessage(data.response)
-            setShowSuccessModal(true)
-        }
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
+            return
         }
-        setSelectedPublicacaoID(null)
+        if (data.response != null) {
+            setSuccessMessage(data.response)
+            setShowSuccessModal(true)
+            return
+        }
+
+        setSelectedPublicacaoID("")
         setNumeroItem('')
         setCodigo('')
         setNome('')
@@ -41,15 +44,18 @@ export default function AlterarPublicacao() {
     const handleDelete = async (e) => {
         e.preventDefault()
         const data = await deletePublicacoes(selectedPublicacaoID)
-        if (data.response != null) {
-            setSuccessMessage(data.response)
-            setShowSuccessModal(true)
-        }
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
+            return
         }
-        setSelectedPublicacaoID(null)
+        if (data.response != null) {
+            setSuccessMessage(data.response)
+            setShowSuccessModal(true)
+            return
+        }
+
+        setSelectedPublicacaoID("")
         setNumeroItem('')
         setCodigo('')
         setNome('')

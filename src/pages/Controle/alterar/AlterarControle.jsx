@@ -9,7 +9,7 @@ import deleteControle from "../../../features/api/controle/deleteControle"
 
 export default function Alterar(){
     const [isChanged, setIsChanged] = useState(false)
-    const [selectedControleID, setSelectedControleID] = useState(null)
+    const [selectedControleID, setSelectedControleID] = useState("")
     const [quantidade, setQuantidade] = useState('')
     const [mes, setMes] = useState('')
     const [ano, setAno] = useState('')
@@ -19,35 +19,41 @@ export default function Alterar(){
     const [errorMessage, setErrorMessage] = useState('')
 
     const onSubmit = async (e) => {
-            e.preventDefault()
-            const data = await putControle(selectedControleID, quantidade, mes, ano)
-            if (data.response != null) {
-                setSuccessMessage(data.response)
-                setShowSuccessModal(true)
-            }
-            if (data.error != null) {
-                setErrorMessage(data.error)
-                setShowErrorModal(true)
-            }
-            setSelectedControleID(null)
-            setQuantidade('')
-            setMes('')
-            setAno('')
-            setIsChanged(!isChanged)
+        e.preventDefault()
+        const data = await putControle(selectedControleID, quantidade, mes, ano)
+        if (data.error != null) {
+            setErrorMessage(data.error)
+            setShowErrorModal(true)
+            return
         }
+        if (data.response != null) {
+            setSuccessMessage(data.response)
+            setShowSuccessModal(true)
+            return
+        }
+    
+        setSelectedControleID("")
+        setQuantidade('')
+        setMes('')
+        setAno('')
+        setIsChanged(!isChanged)
+    }
 
     const handleDelete = async (e) => {
         e.preventDefault()
         const data = await deleteControle(selectedControleID)
-        if (data.response != null) {
-            setSuccessMessage(data.response)
-            setShowSuccessModal(true)
-        }
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
+            return
         }
-        setSelectedControleID(null)
+        if (data.response != null) {
+            setSuccessMessage(data.response)
+            setShowSuccessModal(true)
+            return
+        }
+
+        setSelectedControleID("")
         setQuantidade('')
         setMes('')
         setAno('')

@@ -16,6 +16,7 @@ export default function Lancar(){
     const [quantidade, setQuantidade] = useState('')
     const [mes, setMes] = useState('')
     const [ano, setAno] = useState('')
+
     const [showSuccessModal, setShowSuccessModal] = useState(false)
     const [showErrorModal, setShowErrorModal] = useState(false)
     const [successMessage, setSuccessMessage] = useState('')
@@ -24,13 +25,15 @@ export default function Lancar(){
     const onSubmit = async (e) => {
         e.preventDefault()
         const data = await postControle(publicacaoId, quantidade, mes, ano)
-        if (data.response != null) {
-            setSuccessMessage(data.response)
-            setShowSuccessModal(true)
-        }
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
+            return
+        }
+        if (data.response != null) {
+            setSuccessMessage(data.response)
+            setShowSuccessModal(true)
+            return
         }
         setPublicacaoId('')
         setQuantidade('')

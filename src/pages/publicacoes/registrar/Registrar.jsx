@@ -9,6 +9,7 @@ export default function Registrar() {
     const [codigo, setCodigo] = useState('')
     const [nome, setNome] = useState('')
     const [tipo, setTipo] = useState('')
+
     const [showSuccessModal, setShowSuccessModal] = useState(false)
     const [showErrorModal, setShowErrorModal] = useState(false)
     const [successMessage, setSuccessMessage] = useState('')
@@ -17,14 +18,17 @@ export default function Registrar() {
     const onSubmit = async (e) => {
         e.preventDefault()
         const data = await postPublicacoes(numeroItem, codigo, nome, tipo)
-        if (data.response != null) {
-            setSuccessMessage(data.response)
-            setShowSuccessModal(true)
-        }
         if (data.error != null) {
             setErrorMessage(data.error)
             setShowErrorModal(true)
+            return
         }
+        if (data.response != null) {
+            setSuccessMessage(data.response)
+            setShowSuccessModal(true)
+            return
+        }
+
         setNumeroItem('')
         setCodigo('')
         setNome('')

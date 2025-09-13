@@ -9,30 +9,31 @@ export default function CardInfo({ codigoPubli, nItem, codigo, nome, tipo, setCo
     const [errorMessage, setErrorMessage] = useState('')
 
     const handlerSubmit = async (e) => {
-    e.preventDefault()
-    const data = await getPublicacoes(codigoPubli)
-    console.log(data)
-    if (data.response != null) {
-        setPublicacaoId(data.response[0].PUBLICACAOID)
-        setNumItem(data.response[0].NITEM)
-        setCodigo(data.response[0].CODIGO)
-        setNome(data.response[0].NOME)
-        setTipo(data.response[0].TIPO)
-
+        e.preventDefault()
+        const data = await getPublicacoes(codigoPubli)
+        if (data.error != null) {
+            setErrorMessage(data.error)
+            setShowErrorModal(true)
+            return
+        }
+        if (data.response != null) {
+            setPublicacaoId(data.response[0].PUBLICACAOID)
+            setNumItem(data.response[0].NITEM)
+            setCodigo(data.response[0].CODIGO)
+            setNome(data.response[0].NOME)
+            setTipo(data.response[0].TIPO)
+            return
+        }
     }
-    if (data.error != null) {
-        setErrorMessage(data.error)
-        setShowErrorModal(true)
-    }
-}
 
     const dataPubli = {
-    0: {name: 'ID Publicação', value: publicacaoId},
-    1: {name: 'Número do Item', value: nItem},
-    3: {name: 'Código', value: codigo},
-    4: {name: 'Nome', value: nome},
-    5: {name: 'Tipo', value: tipo},
-}
+        0: {name: 'ID Publicação', value: publicacaoId},
+        1: {name: 'Número do Item', value: nItem},
+        3: {name: 'Código', value: codigo},
+        4: {name: 'Nome', value: nome},
+        5: {name: 'Tipo', value: tipo},
+    }
+
     return(
         <div className="text-center"> 
              {showErrorModal && <ErrorModal menssagem={errorMessage} onClose={() => {setShowErrorModal(false)}}></ErrorModal>}
