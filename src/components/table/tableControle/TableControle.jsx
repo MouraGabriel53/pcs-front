@@ -3,6 +3,7 @@ import getControle from "../../../features/api/controle/getControle"
 
 export default function TableControle({ setSelectedControleID, isChanged }){ 
     const [data, setData] = useState([])
+    const [selectedID, setSelectedID] = useState("")
 
     useEffect(() => {
         const fetchData = async () => {
@@ -14,7 +15,7 @@ export default function TableControle({ setSelectedControleID, isChanged }){
      
     return (
         <div style={{ width: '60rem', height: '30rem', overflowY: 'auto' }}>
-            <table className="table table-striped table-hover m-0">
+            <table className="table table-striped table-hover m-0 text-center">
                 <thead className="text-center"
                     style={{
                         position: 'sticky',
@@ -34,14 +35,19 @@ export default function TableControle({ setSelectedControleID, isChanged }){
                 </thead>
                 <tbody>
                     {data != null && data.map((item) => (
-                        <tr key={item.CONTROLEID} id={item.CONTROLEID} className="text-center" onClick={(e) => {setSelectedControleID(e.currentTarget.id)}}>
-                            <td>{item.CONTROLEID}</td>
-                            <td>{item.PUBLICACAOID}</td>
-                            <td>{item.CODIGO}</td>
-                            <td>{item.NOME}</td>
-                            <td>{item.QUANTIDADE}</td>
-                            <td>{item.MES}</td>
-                            <td>{item.ANO}</td>
+                        <tr 
+                            key={item.CONTROLEID} 
+                            id={item.CONTROLEID} 
+                            className={selectedID == item.CONTROLEID ? "table-success" : ""} 
+                            onClick={(e) => {setSelectedControleID(e.currentTarget.id); setSelectedID(e.currentTarget.id)}}>
+
+                                <td>{item.CONTROLEID}</td>
+                                <td>{item.PUBLICACAOID}</td>
+                                <td>{item.CODIGO}</td>
+                                <td>{item.NOME}</td>
+                                <td>{item.QUANTIDADE}</td>
+                                <td>{item.MES}</td>
+                                <td>{item.ANO}</td>
                         </tr>
                     ))}
                 </tbody>

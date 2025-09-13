@@ -1,14 +1,7 @@
 .sidebar {
-    width: 1rem;
+    width: 10rem;
     height: 100vh;
     transition: 250ms;
-    opacity: 0;
-}
-
-.sidebar:hover {
-    width: 10rem;
-    transition: 250ms;
-    opacity: 1;
 }
 
 a, span {

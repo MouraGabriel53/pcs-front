@@ -13,9 +13,6 @@ export default function General(){
             <BrowserRouter>
                 <AsideBar></AsideBar>
                 <Routes>
-                    <Route path="/dashboard"  element={
-                        <h1 className="m-auto">🚀 Bem-vindo!</h1>         
-                    }></Route>
                     <Route path="/controle/lancar" element={
                         <Lancar></Lancar>
                     }></Route>
@@ -28,7 +25,7 @@ export default function General(){
                     <Route path="/publicacoes/alterar"  element={
                         <AlterarPublicacao></AlterarPublicacao>
                     }></Route>
-                    <Route path='*' element={<Navigate to='/dashboard'/>}></Route>
+                    <Route path='*' element={<Navigate to='/controle/lancar'/>}></Route>
                 </Routes>
             </BrowserRouter>
         </div>
